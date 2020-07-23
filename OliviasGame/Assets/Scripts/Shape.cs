@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-
+    public ShapesGameManager shapesGameManager;
     public Transform dragParent;
     public Transform dropParent;
     public float sizeDecreaseSpeed;     //the speed in which to decrease the scale on a correct answer
@@ -17,6 +17,7 @@ public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     private void Start()
     {
+        shapesGameManager = GameObject.FindObjectOfType<ShapesGameManager>();
         startLocation = transform.position;
         dragParent = GameObject.Find("Canvas").transform;
         dropParent = GameObject.Find("Container").transform;
@@ -27,7 +28,6 @@ public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     {
         if (isCorrect)
         {
-            Debug.Log("Correct");
             Vector3 myScale = transform.localScale;
             myScale -= new Vector3(sizeDecreaseSpeed, sizeDecreaseSpeed, 0f) * Time.deltaTime;
             transform.localScale = myScale;
@@ -35,6 +35,7 @@ public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
         if (transform.localScale.x < 0 && transform.localScale.y < 0)
         {
+            shapesGameManager.shapesInLevel.Remove(this.gameObject);
             Destroy(this.gameObject);
         }
     }
@@ -63,6 +64,7 @@ public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         {
             transform.position = startLocation;
             transform.parent = dropParent;
+            transform.SetAsFirstSibling();
         }
     }
 }
