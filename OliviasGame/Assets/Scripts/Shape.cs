@@ -15,10 +15,15 @@ public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
     public List<Sprite> sprites;
 
+    public AudioSource mySource;
+    public AudioClip correct;
+    public AudioClip wrong;
+
     bool isCorrect;     //boolean to tell us if we got the correct answer
 
     private void Start()
     {
+        mySource = GetComponent<AudioSource>();
         shapesGameManager = GameObject.FindObjectOfType<ShapesGameManager>();
         startLocation = transform.position;
         dragParent = GameObject.Find("Canvas").transform;
@@ -30,6 +35,7 @@ public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     {
         if (isCorrect)
         {
+            mySource.Play();
             Vector3 myScale = transform.localScale;
             myScale -= new Vector3(sizeDecreaseSpeed, sizeDecreaseSpeed, 0f) * Time.deltaTime;
             transform.localScale = myScale;

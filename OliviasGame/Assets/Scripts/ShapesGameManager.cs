@@ -21,6 +21,7 @@ public class ShapesGameManager : MonoBehaviour
     public bool isRocketOffScreen;
 
 
+
     private void Start()
     {
         SetupGame();
@@ -33,7 +34,8 @@ public class ShapesGameManager : MonoBehaviour
             SpawnShapes();
         }
 
-        rocket.transform.position = Vector3.zero;
+        
+        rocket.GetComponent<RectTransform>().position = Vector3.zero;
         isRocketOffScreen = false;
         burn.enabled = false;
         winPanel.SetActive(false);
@@ -98,5 +100,6 @@ public class ShapesGameManager : MonoBehaviour
     public void RocketOffScreen()
     {
         isRocketOffScreen = true;
+        rocket.GetComponent<Animator>().SetBool("hasWon", false);
     }
 }
