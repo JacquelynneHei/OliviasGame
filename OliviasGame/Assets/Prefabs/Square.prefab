@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6426168680216312582
+--- !u!1 &7666896032511860876
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6426168680216312577}
-  - component: {fileID: 6426168680216312579}
-  - component: {fileID: 6426168680216312576}
-  - component: {fileID: 6426168680216312578}
+  - component: {fileID: 7666896032511860875}
+  - component: {fileID: 7666896032511860873}
+  - component: {fileID: 7666896032511860874}
+  - component: {fileID: 7666896032511860872}
   m_Layer: 5
   m_Name: Square
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6426168680216312577
+--- !u!224 &7666896032511860875
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6426168680216312582}
+  m_GameObject: {fileID: 7666896032511860876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -38,28 +38,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6426168680216312579
+--- !u!222 &7666896032511860873
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6426168680216312582}
+  m_GameObject: {fileID: 7666896032511860876}
   m_CullTransparentMesh: 0
---- !u!114 &6426168680216312576
+--- !u!114 &7666896032511860874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6426168680216312582}
+  m_GameObject: {fileID: 7666896032511860876}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.65364814, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -74,19 +74,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6426168680216312578
+--- !u!114 &7666896032511860872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6426168680216312582}
+  m_GameObject: {fileID: 7666896032511860876}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcfda7171f150c94baa9e56c56661525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shapesGameManager: {fileID: 0}
   dragParent: {fileID: 0}
   dropParent: {fileID: 0}
   sizeDecreaseSpeed: 1.2
   dropLocation: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: d8ea2a75ba1d86c4daf148710f86e194, type: 3}
+  - {fileID: 21300000, guid: 81ddcca7610bee545b266e7c5ab406fc, type: 3}
+  - {fileID: 21300000, guid: 89e7b41b250a53e4a965f208f53b75c5, type: 3}
+  - {fileID: 21300000, guid: 9a9cee0a77252cb478a0ed804f3df6c5, type: 3}
+  - {fileID: 21300000, guid: 8bf59f47f74cbf442ad6db5e5d5a22de, type: 3}

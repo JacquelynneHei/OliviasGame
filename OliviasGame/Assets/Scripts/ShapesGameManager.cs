@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShapesGameManager : MonoBehaviour
 {
@@ -11,10 +12,14 @@ public class ShapesGameManager : MonoBehaviour
     public Transform circleDropLocation;
     public Transform squareDropLocation;
     public Transform triangleDropLocation;
+    public GameObject rocket;
+    public Image burn;
 
     [Header("Win Condition")]
     public List<GameObject> shapesInLevel;
     public GameObject winPanel;
+    public bool isRocketOffScreen;
+
 
     private void Start()
     {
@@ -28,6 +33,9 @@ public class ShapesGameManager : MonoBehaviour
             SpawnShapes();
         }
 
+        rocket.transform.position = Vector3.zero;
+        isRocketOffScreen = false;
+        burn.enabled = false;
         winPanel.SetActive(false);
     }
 
@@ -57,6 +65,8 @@ public class ShapesGameManager : MonoBehaviour
 
         Shape shapeScript = shape.GetComponent<Shape>();
 
+        shape.GetComponent<Image>().sprite = shapeScript.sprites[Random.Range(0, shapeScript.sprites.Count)];
+
         switch (randomShape)
         {
             case 0:
@@ -73,6 +83,20 @@ public class ShapesGameManager : MonoBehaviour
 
     void WinState()
     {
-        winPanel.SetActive(true);
+        if (isRocketOffScreen)
+        {
+            winPanel.SetActive(true); 
+        }
+        else
+        {
+            Animator rocketAnim = rocket.GetComponent<Animator>();
+            burn.enabled = true;
+            rocketAnim.SetBool("hasWon", true);
+        }
+    }
+
+    public void RocketOffScreen()
+    {
+        isRocketOffScreen = true;
     }
 }

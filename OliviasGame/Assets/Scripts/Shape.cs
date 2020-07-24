@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Path;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -12,6 +12,8 @@ public class Shape : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     public float sizeDecreaseSpeed;     //the speed in which to decrease the scale on a correct answer
     public Transform dropLocation;      //the drop location that is correct
     private Vector3 startLocation;     //the location of the shape when it spawns into the level
+
+    public List<Sprite> sprites;
 
     bool isCorrect;     //boolean to tell us if we got the correct answer
 
